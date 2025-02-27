@@ -12,12 +12,27 @@
     "url": "git+https://github.com/Sarsela/frontend-project-44.git"
   },
   "bin": {
-  "brain-games": "bin/brain-games.js"
+    "brain-games": "bin/brain-games.js"
   },
   "author": "Anastasia K",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Sarsela/frontend-project-44/issues"
   },
-  "homepage": "https://github.com/Sarsela/frontend-project-44#readme"
+  "homepage": "https://github.com/Sarsela/frontend-project-44#readme",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
+    "@eslint/create-config": "^1.0.0",
+    "@eslint/eslintrc": "^3.3.0",
+    "@eslint/js": "^9.21.0",
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "globals": "^16.0.0"
+  }
 }
