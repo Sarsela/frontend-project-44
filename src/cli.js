@@ -13,11 +13,33 @@ function randomNum(max, min) {
 
 export const evenGame = (name) => {
   let correctCount = 0;
+  console.log('Answer "yes" if the number is even, otherwise answer "no".');
   while (correctCount < 3) {
     const random = randomNum(1, 100);
+
     console.log(`Question:${random}`);
     const ans = readlineSync.question('Your answer:');
     const correct = random % 2 === 0 ? 'yes' : 'no';
+    if (ans === correct) { console.log('Correct!'); correctCount += 1; } else {
+      console.log(`${ans} is wrong answer ;(. Correct answer was ${correct}.
+Let's try again!, ${name})`); break;
+    }
+    if (correctCount === 3) {
+      console.log(`Congratulations! ${name}`);
+      break;
+    }
+  }
+};
+
+export const calcGame = (name) => {
+  let correctCount = 0;
+  console.log('What is the result of the expression?');
+  while (correctCount < 3) {
+    const random = randomNum(1, 100);
+
+    console.log(`Question:${random}`);
+    const ans = readlineSync.question('Your answer:');
+    const correct = random ? 'yes' : 'no';
     if (ans === correct) { console.log('Correct!'); correctCount += 1; } else {
       console.log(`${ans} is wrong answer ;(. Correct answer was ${correct}.
 Let's try again!, ${name})`); break;
