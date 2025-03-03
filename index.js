@@ -1,3 +1,3 @@
-import cli from './src/cli.js';
+import { evenGame, welcome } from './src/cli.js';
 
-export default cli;
+export { evenGame, welcome };
