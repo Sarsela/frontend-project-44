@@ -1,3 +1,3 @@
-import { evenGame, welcome } from './src/cli.js';
+import { evenGame, welcome, calcGame } from './src/cli.js';
 
-export { evenGame, welcome };
+export { evenGame, welcome, calcGame };
