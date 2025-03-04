@@ -44,14 +44,14 @@ const calculateCorrect = (num1, num2, operator) => {
   }
 };
 
-const generateRandomExpression = () => {
+const RandomExpression = () => {
   const random1 = randomNum(1, 100);
   const random2 = randomNum(1, 100);
-  const operators = ['+', '-', '*', '/'];
+  const operators = ['+', '-', '*'];
   const randomOperator = operators[randomNum(0, operators.length - 1)];
 
-  const answer = calculateCorrect(random1, random2, randomOperator);
-  return { expression: `${random1} ${randomOperator} ${random2}`, answer };
+  const correct = calculateCorrect(random1, random2, randomOperator);
+  return { expression: `${random1} ${randomOperator} ${random2}`, correct };
 };
 
 export const calcGame = (name) => {
@@ -59,20 +59,52 @@ export const calcGame = (name) => {
   console.log('What is the result of the expression?');
 
   while (correctCount < 3) {
-    const { expression, answer } = generateRandomExpression();
+    const { expression, correct } = RandomExpression();
     console.log(`Question: ${expression}`);
     const ans = parseFloat(readlineSync.question('Your answer:'));
 
-    if (ans === answer) {
+    if (ans === correct) {
       console.log('Correct!');
       correctCount += 1;
     } else {
-      console.log(`${ans} is wrong answer ;(. Correct answer was ${answer}. Let's try again, ${name}!`);
+      console.log(`${ans} is wrong answer ;(. Correct answer was ${correct}. Let's try again, ${name}!`);
       break;
     }
   }
 
   if (correctCount === 3) {
     console.log(`Congratulations! ${name}`);
+  }
+};
+
+function gcd(a, b) {
+  const a = randomNum(1, 100);
+  const b = randomNum(1, 100);
+
+  if (a === 0) { return b; }
+  if (b === 0) { return a; }
+
+  return gcd(b, a % b);
+}
+
+export const qcdGame = (name) => {
+  let correctCount = 0;
+  console.log('Find the greatest common divisor of given numbers.');
+  while (correctCount < 3) {
+    const random1 = randomNum(1, 100);
+    const random2 = randomNum(1, 100);
+    const correct = gcd(random2, random1 % random2)
+
+    console.log(`Question:${random1}${random2}`);
+    const ans = parseFloat(readlineSync.question('Your answer:'));
+    
+    if (ans === correct) { console.log('Correct!'); correctCount += 1; } else {
+      console.log(`${ans} is wrong answer ;(. Correct answer was ${correct}.
+Let's try again!, ${name})`); break;
+    }
+    if (correctCount === 3) {
+      console.log(`Congratulations! ${name}`);
+      break;
+    }
   }
 };
